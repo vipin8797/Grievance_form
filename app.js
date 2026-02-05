@@ -87,7 +87,7 @@ app.get("/", (req, res) => {
 app.post(
   "/submit",
   upload.array("evidenceFiles", 5),
-  validateComplaint,
+  
   async (req, res) => {
 
     try {
@@ -107,36 +107,37 @@ app.post(
 
        console.log(evidenceUrls);
       // ---- create complaint ----
-      const complaint = new Complaint({
+     const complaint = new Complaint({
 
-        category: req.body.category,
-        role: req.body.role,
+  category: req.body.category,
+  role: req.body.role,
 
-        personal: {
-          name: req.body.name,
-          fatherName: req.body.fatherName,
-          department: req.body.department
-        },
+  personal: {
+    name: req.body.name?.trim(),
+    fatherName: req.body.fatherName?.trim(),
+    department: req.body.department?.trim()
+  },
 
-        academic: {
-          programme: req.body.programme || "",
-          batch: req.body.batch || "",
-          semester: req.body.semester || ""
-        },
+  academic: {
+    programme: req.body.programme,
+    batch: req.body.batch,
+    semester: req.body.semester
+  },
 
-        contact: {
-          address: req.body.address,
-          state: req.body.state,
-          city: req.body.city,
-          pincode: req.body.pincode,
-          contactNumber: req.body.contact
-        },
+  contact: {
+    address: req.body.address,
+    state: req.body.state,
+    city: req.body.city,
+    pincode: req.body.pincode,
+    contactNumber: req.body.contact
+  },
 
-        message: req.body.message,
+  message: req.body.message?.trim(),
 
-        evidence: evidenceUrls
+  evidence: evidenceUrls
 
-      });
+});
+
 
       //saving in db.
       await complaint.save();
