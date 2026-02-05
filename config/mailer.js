@@ -14,7 +14,7 @@ export function sendComplaintMail(mailText) {
 
     const receiver = {
         from: process.env.MAIL_USER,
-        to: process.env.MAIL_TO,
+        to: "vy879736@gmail.com",
         subject: "Grievance Complain",
         text: mailText
     };
