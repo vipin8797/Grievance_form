@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<title>Grievance Form</title>
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Grievance / Complaint Form</h2>
+
+<form action="/submit" method="POST" enctype="multipart/form-data"
+  class="needs-validation" novalidate>
+
+<!-- CATEGORY -->
+<div class="section">
+<h3>Complaint Category</h3>
+
+<select name="category" required>
+<option value="">Select Category</option>
+<option>General</option>
+<option>Ragging</option>
+<option>Caste Discrimination</option>
+<option>Sexual Harassment</option>
+<option>Examination</option>
+<option>Minority Community</option>
+</select>
+</div>
+
+<!-- ROLE -->
+<div class="section">
+<h3>Who Are You?</h3>
+
+<select id="role" name="role" required>
+<option value="">Select</option>
+<option value="student">Student</option>
+<option value="staff">Staff</option>
+</select>
+</div>
+
+<!-- PERSONAL -->
+<div class="section">
+<h3>Personal Information</h3>
+
+<div class="grid">
+<input name="name" placeholder="Full Name *" required>
+<input name="fatherName" placeholder="Father's Name *" required>
+<input name="department" placeholder="Department *" required>
+</div>
+
+</div>
+
+<!-- STUDENT INFO -->
+<div class="section" id="studentFields">
+
+<h3>Academic Information (Students Only)</h3>
+
+<div class="grid">
+<input name="programme" placeholder="Programme">
+<input name="batch" placeholder="Batch of Admission">
+<input name="semester" placeholder="Semester">
+</div>
+
+</div>
+
+<!-- CONTACT -->
+<div class="section">
+<h3>Contact Details</h3>
+
+<textarea name="address" placeholder="Address *" required></textarea>
+
+<div class="grid">
+<input name="state" placeholder="State *" required>
+<input name="city" placeholder="City *" required>
+<input name="pincode" placeholder="Pin Code *" required>
+<input name="contact" placeholder="Contact Number *" required>
+</div>
+
+</div>
+
+<!-- COMPLAINT -->
+<div class="section">
+<h3>Complaint Details</h3>
+
+<textarea name="message" placeholder="Describe complaint *" required></textarea>
+</div>
+
+<!-- EVIDENCE -->
+<div class="section">
+<h3>Evidence Upload</h3>
+<i>max size 100 MB & max 10 file at once, Support multiple formate.</i>
+<input type="file" name="evidenceFiles" multiple>
+OR
+
+<label>Paste Evidence URL</label>
+<i>uload drive link of large evidence data.</i>
+<input type="url" name="evidenceUrl" placeholder="https://example.com/file">
+</div>
+
+<button type="submit">Submit Complaint</button>
+
+</form>
+
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

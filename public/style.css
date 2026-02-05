@@ -1,0 +1,62 @@
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    margin:0;
+}
+
+.container{
+    max-width:900px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+h2{text-align:center;}
+
+.section{margin-top:25px;}
+
+.section h3{
+    border-left:5px solid #007bff;
+    padding-left:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:4px;
+}
+
+textarea{
+    resize:vertical;
+    min-height:100px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+button:hover{background:#0056b3;}
+
+#studentFields{display:none;}
+
+@media(max-width:700px){
+.grid{grid-template-columns:1fr;}
+}
