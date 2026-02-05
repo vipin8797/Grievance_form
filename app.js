@@ -15,6 +15,7 @@ import Complaint from "./models/complaintSchema.js";
 import {storage} from "./config/cloudConfig.js";
 import { buildEmail } from './config/mailFormateBuilder.js';
 import { sendComplaintMail } from "./config/mailer.js";
+import {validateComplaint} from "./middleware/joiValidator.js";
 
 // dirname fix for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -86,6 +87,7 @@ app.get("/", (req, res) => {
 app.post(
   "/submit",
   upload.array("evidenceFiles", 5),
+  validateComplaint,
   async (req, res) => {
 
     try {

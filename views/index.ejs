@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<title>Grievance Form</title>
+<link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/en/6/65/Starex_University_logo.png">
+
+<title> Starex Grievance Form</title>
 
 
 </head>
@@ -14,16 +16,15 @@
 
 <div class="container">
 
-<h2>Grievance / Complaint Form</h2>
-
+<h2> Starex Grievance / Complaint Form</h2>
 <form action="/submit" method="POST" enctype="multipart/form-data"
-  class="needs-validation" novalidate>
+class="needs-validation" novalidate>
 
 <!-- CATEGORY -->
 <div class="section">
 <h3>Complaint Category</h3>
 
-<select name="category" required>
+<select name="category" class="form-select" required>
 <option value="">Select Category</option>
 <option>General</option>
 <option>Ragging</option>
@@ -32,17 +33,25 @@
 <option>Examination</option>
 <option>Minority Community</option>
 </select>
+
+<div class="invalid-feedback">
+Please select a category.
+</div>
 </div>
 
 <!-- ROLE -->
 <div class="section">
 <h3>Who Are You?</h3>
 
-<select id="role" name="role" required>
+<select id="role" name="role" class="form-select" required>
 <option value="">Select</option>
 <option value="student">Student</option>
 <option value="staff">Staff</option>
 </select>
+
+<div class="invalid-feedback">
+Please select your role.
+</div>
 </div>
 
 <!-- PERSONAL -->
@@ -50,11 +59,17 @@
 <h3>Personal Information</h3>
 
 <div class="grid">
-<input name="name" placeholder="Full Name *" required>
-<input name="fatherName" placeholder="Father's Name *" required>
-<input name="department" placeholder="Department *" required>
-</div>
 
+<input name="name" class="form-control" placeholder="Full Name *" required>
+<div class="invalid-feedback">Name required.</div>
+
+<input name="fatherName" class="form-control" placeholder="Father's Name *" required>
+<div class="invalid-feedback">Father name required.</div>
+
+<input name="department" class="form-control" placeholder="Department *" required>
+<div class="invalid-feedback">Department required.</div>
+
+</div>
 </div>
 
 <!-- STUDENT INFO -->
@@ -63,50 +78,70 @@
 <h3>Academic Information (Students Only)</h3>
 
 <div class="grid">
-<input name="programme" placeholder="Programme">
-<input name="batch" placeholder="Batch of Admission">
-<input name="semester" placeholder="Semester">
-</div>
 
+<input name="programme" class="form-control" placeholder="Programme">
+<input name="batch" class="form-control" placeholder="Batch of Admission">
+<input name="semester" class="form-control" placeholder="Semester">
+
+</div>
 </div>
 
 <!-- CONTACT -->
 <div class="section">
 <h3>Contact Details</h3>
 
-<textarea name="address" placeholder="Address *" required></textarea>
+<textarea name="address" class="form-control" placeholder="Address *" required></textarea>
+<div class="invalid-feedback">Address required.</div>
 
 <div class="grid">
-<input name="state" placeholder="State *" required>
-<input name="city" placeholder="City *" required>
-<input name="pincode" placeholder="Pin Code *" required>
-<input name="contact" placeholder="Contact Number *" required>
-</div>
 
+<input name="state" class="form-control" placeholder="State *" required>
+<div class="invalid-feedback">State required.</div>
+
+<input name="city" class="form-control" placeholder="City *" required>
+<div class="invalid-feedback">City required.</div>
+
+<input name="pincode" class="form-control" placeholder="Pin Code *" required>
+<div class="invalid-feedback">Pincode required.</div>
+
+<input name="contact" class="form-control" placeholder="Contact Number *" required>
+<div class="invalid-feedback">Contact number required.</div>
+
+</div>
 </div>
 
 <!-- COMPLAINT -->
 <div class="section">
 <h3>Complaint Details</h3>
 
-<textarea name="message" placeholder="Describe complaint *" required></textarea>
+<textarea name="message" class="form-control" placeholder="Describe complaint *" required></textarea>
+<div class="invalid-feedback">Complaint message required.</div>
+
 </div>
 
 <!-- EVIDENCE -->
 <div class="section">
 <h3>Evidence Upload</h3>
-<i>max size 100 MB & max 10 file at once, Support multiple formate.</i>
-<input type="file" name="evidenceFiles" multiple>
-OR
+
+<i>max size 100 MB & max 5 file at once.</i>
+
+<input type="file" name="evidenceFiles" class="form-control" multiple>
+
+<br>
 
 <label>Paste Evidence URL</label>
-<i>uload drive link of large evidence data.</i>
-<input type="url" name="evidenceUrl" placeholder="https://example.com/file">
+
+<input type="url" name="evidenceUrl" class="form-control"
+placeholder="https://example.com/file">
+
 </div>
 
-<button type="submit">Submit Complaint</button>
+<button type="submit" class="btn btn-primary mt-3">
+Submit Complaint
+</button>
 
 </form>
+
 
 </div>
 
@@ -114,7 +149,28 @@ OR
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script>
+    (() => {
 
+  const forms = document.querySelectorAll(".needs-validation");
+
+  Array.from(forms).forEach(form => {
+
+    form.addEventListener("submit", event => {
+
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      form.classList.add("was-validated");
+
+    });
+
+  });
+
+})();
+</script>
 
 
 </body>
