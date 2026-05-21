@@ -1,5 +1,8 @@
 // Requiring Dependencies
 import 'dotenv/config';
+import { validateEnv } from './config/envValidate.js';
+validateEnv();
+
 import express from "express";
 import path from "path";
 import morgan from "morgan";
