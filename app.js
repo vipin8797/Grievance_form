@@ -18,9 +18,7 @@ import nodemailer from "nodemailer";
 import connectDb from './config/dbConnect.js';
 import Complaint from "./models/complaintSchema.js";
 import {storage} from "./config/cloudConfig.js";
-import { buildEmail } from './config/mailFormateBuilder.js';
 import { sendComplaintMail } from "./config/mailer.js";
-import {validateComplaint} from "./middleware/joiValidator.js";
 import ExpressError from "./utils/ExpressError.js";
 import complaintRouter from "./routes/complaint.js";
 

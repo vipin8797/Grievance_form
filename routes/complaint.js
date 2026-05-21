@@ -5,6 +5,7 @@ import Complaint from "../models/complaintSchema.js";
 import { buildEmail } from '../config/mailFormateBuilder.js';
 import { sendComplaintMail } from "../config/mailer.js";
 import wrapAsync from "../utils/wrapAsync.js";
+import { validateComplaint } from "../middleware/joiValidator.js";
 
 const router = express.Router();
 const upload = multer({ storage });
@@ -18,6 +19,7 @@ router.get("/", (req, res) => {
 router.post(
     "/submit",
     upload.array("evidenceFiles", 5),
+    validateComplaint,
     wrapAsync(async (req, res) => {
         let evidenceUrls = [];
 
