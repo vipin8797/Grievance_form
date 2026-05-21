@@ -19,6 +19,7 @@ import { buildEmail } from './config/mailFormateBuilder.js';
 import { sendComplaintMail } from "./config/mailer.js";
 import {validateComplaint} from "./middleware/joiValidator.js";
 import ExpressError from "./utils/ExpressError.js";
+import complaintRouter from "./routes/complaint.js";
 
 // dirname fix for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -56,128 +57,9 @@ app.use((req, res, next) => {
     next();
 });
 
-const upload = multer({ storage })
+// Routes
+app.use("/", complaintRouter);
 
-
-
-// Test route
-app.get("/", (req, res) => {
-    res.render("index.ejs");
-});
-
-
-// //Get all Complaints
-// app.get("/all",async(req, res)=>{
-//     console.log("USER:", process.env.MAIL_USER);
-// console.log("PASS:", process.env.MAIL_PASS);
-
-//     try {
-//         const auth = nodemailer.createTransport({
-//             service:"gmail",
-//             secure:true,
-//             port:456,
-//             auth:{
-//                 user:"cy7795151@gmail.com",
-//                 pass:"ifvegspmksbaczeh"
-//             }
-//         });
-
-//         const receiver = {
-//             from:"cy7795151@gmail.com",
-//             to:"cy7795151@gmail.com",
-//             subject:"Hello",
-//             text:"this is data."
-//         };
-// console.log("Sending email...");
-//         auth.sendMail(receiver,(error,emailRespone)=>{
-//             if(error){
-//                 console.log(error);
-        
-//             }console.log("sent")
-//         })
-  
-
-
-//   console.log("Email sent:", );
-
-// } catch (err) {
-//   console.error("Mail error:", err);
-// }
-
-// });
-
-
-//POST for form
-app.post(
-  "/submit",
-  upload.array("evidenceFiles", 5),
-  
-  async (req, res) => {
-
-    try {
-
-      let evidenceUrls = [];
-
-      //  direct URL
-      if (req.body.evidenceUrl) {
-        evidenceUrls.push(req.body.evidenceUrl.trim());
-      }
-
-      // uploaded files URLS 
-      if (req.files && req.files.length > 0) {
-        const uploadedUrls = req.files.map(file => file.path);
-        evidenceUrls.push(...uploadedUrls);
-      }
-
-       console.log(evidenceUrls);
-      // ---- create complaint ----
-     const complaint = new Complaint({
-
-  category: req.body.category,
-  role: req.body.role,
-
-  personal: {
-    name: req.body.name?.trim(),
-    fatherName: req.body.fatherName?.trim(),
-    department: req.body.department?.trim()
-  },
-
-  academic: {
-    programme: req.body.programme,
-    batch: req.body.batch,
-    semester: req.body.semester
-  },
-
-  contact: {
-    address: req.body.address,
-    state: req.body.state,
-    city: req.body.city,
-    pincode: req.body.pincode,
-    contactNumber: req.body.contact
-  },
-
-  message: req.body.message?.trim(),
-
-  evidence: evidenceUrls
-
-});
-
-
-      //saving in db.
-      await complaint.save();
-
-      //creating email to be sent
-      const mailText = buildEmail(complaint, evidenceUrls);
-      sendComplaintMail(mailText);
-      res.send("User will be redirected to home page after this.");;
-
-    } catch (err) {
-
-      console.error(err);
-      res.status(500).send("Submission failed",err);
-
-    }
-});
 
 // 404 handler
 app.all("*", (req, res, next) => {
