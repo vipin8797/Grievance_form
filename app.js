@@ -18,6 +18,7 @@ import {storage} from "./config/cloudConfig.js";
 import { buildEmail } from './config/mailFormateBuilder.js';
 import { sendComplaintMail } from "./config/mailer.js";
 import {validateComplaint} from "./middleware/joiValidator.js";
+import ExpressError from "./utils/ExpressError.js";
 
 // dirname fix for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -178,7 +179,16 @@ app.post(
     }
 });
 
+// 404 handler
+app.all("*", (req, res, next) => {
+    next(new ExpressError(404, "Page Not Found!"));
+});
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+    let { statusCode = 500, message = "Something went wrong!" } = err;
+    res.status(statusCode).send(message);
+});
 
 
 // Start server
