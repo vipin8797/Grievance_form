@@ -242,3 +242,42 @@ textarea {
         font-size: 1.8rem !important;
     }
 }
+
+/* Scroll to Top Button */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, hsl(210, 100%, 50%), hsl(220, 100%, 40%));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+}
+
+.scroll-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top-btn:hover {
+    background: linear-gradient(135deg, hsl(210, 100%, 55%), hsl(220, 100%, 45%));
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+.scroll-to-top-btn:active {
+    transform: translateY(0) scale(0.95);
+}
