@@ -200,8 +200,9 @@ Please select your role.
 
 </div>
 
-<button type="submit" class="btn btn-primary mt-3" aria-label="Submit Complaint Form">
-Submit Complaint
+<button type="submit" id="submitBtn" class="btn btn-primary mt-3" aria-label="Submit Complaint Form">
+    <span class="button-text">Submit Complaint</span>
+    <span id="submitSpinner" class="spinner-border spinner-border-sm d-none ms-2" role="status" aria-hidden="true"></span>
 </button>
 
 </form>
@@ -294,8 +295,23 @@ Submit Complaint
                 if (!form.checkValidity()) {
                     event.preventDefault();
                     event.stopPropagation();
+                    form.classList.add("was-validated");
+                } else {
+                    form.classList.add("was-validated");
+                    
+                    const submitBtn = document.getElementById("submitBtn");
+                    const submitSpinner = document.getElementById("submitSpinner");
+                    const btnText = submitBtn ? submitBtn.querySelector(".button-text") : null;
+                    
+                    if (submitBtn) {
+                        // Prevent multiple submissions
+                        setTimeout(() => {
+                            submitBtn.disabled = true;
+                            if (submitSpinner) submitSpinner.classList.remove("d-none");
+                            if (btnText) btnText.textContent = "Submitting...";
+                        }, 10);
+                    }
                 }
-                form.classList.add("was-validated");
             });
         });
     })();
