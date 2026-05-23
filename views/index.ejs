@@ -30,17 +30,17 @@
 
 <%- include("includes/flash.ejs") %>
 
-<div class="container">
+<div class="container" role="main">
 
-<h2> Starex Grievance / Complaint Form</h2>
-<form action="/submit" method="POST" enctype="multipart/form-data"
-class="needs-validation" novalidate>
+<h2>Starex Grievance / Complaint Form</h2>
+<form action="/submit" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate aria-label="Grievance Submission Form">
 
 <!-- CATEGORY -->
-<div class="section">
-<h3>Complaint Category</h3>
+<div class="section" role="group" aria-labelledby="categoryHeading">
+<h3 id="categoryHeading">Complaint Category</h3>
 
-<select name="category" class="form-select" required>
+<label for="category" class="form-label d-none">Select Complaint Category</label>
+<select id="category" name="category" class="form-select" aria-required="true" required>
 <option value="">Select Category</option>
 <option>General</option>
 <option>Ragging</option>
@@ -50,109 +50,146 @@ class="needs-validation" novalidate>
 <option>Minority Community</option>
 </select>
 
-<div class="invalid-feedback">
+<div class="invalid-feedback" role="alert">
 Please select a category.
 </div>
 </div>
 
 <!-- ROLE -->
-<div class="section">
-<h3>Who Are You?</h3>
+<div class="section" role="group" aria-labelledby="roleHeading">
+<h3 id="roleHeading">Who Are You?</h3>
 
-<select id="role" name="role" class="form-select" required>
+<label for="role" class="form-label d-none">Select your role</label>
+<select id="role" name="role" class="form-select" aria-required="true" required>
 <option value="">Select</option>
 <option value="student">Student</option>
 <option value="staff">Staff</option>
 </select>
 
-<div class="invalid-feedback">
+<div class="invalid-feedback" role="alert">
 Please select your role.
 </div>
 </div>
 
 <!-- PERSONAL -->
-<div class="section">
-<h3>Personal Information</h3>
+<div class="section" role="group" aria-labelledby="personalHeading">
+<h3 id="personalHeading">Personal Information</h3>
 
 <div class="grid">
 
-<input name="name" class="form-control" placeholder="Full Name *" required>
-<div class="invalid-feedback">Name required.</div>
+<div>
+<label for="name" class="form-label d-none">Full Name</label>
+<input id="name" name="name" class="form-control" placeholder="Full Name *" aria-required="true" required>
+<div class="invalid-feedback" role="alert">Name required.</div>
+</div>
 
-<input name="fatherName" class="form-control" placeholder="Father's Name *" required>
-<div class="invalid-feedback">Father name required.</div>
+<div>
+<label for="fatherName" class="form-label d-none">Father's Name</label>
+<input id="fatherName" name="fatherName" class="form-control" placeholder="Father's Name *" aria-required="true" required>
+<div class="invalid-feedback" role="alert">Father name required.</div>
+</div>
 
-<input name="department" class="form-control" placeholder="Department *" required>
-<div class="invalid-feedback">Department required.</div>
+<div>
+<label for="department" class="form-label d-none">Department</label>
+<input id="department" name="department" class="form-control" placeholder="Department *" aria-required="true" required>
+<div class="invalid-feedback" role="alert">Department required.</div>
+</div>
 
 </div>
 </div>
 
 <!-- STUDENT INFO -->
-<div class="section" id="studentFields">
+<div class="section" id="studentFields" role="group" aria-labelledby="studentHeading" style="display: none;">
 
-<h3>Academic Information (Students Only)</h3>
+<h3 id="studentHeading">Academic Information (Students Only)</h3>
 
 <div class="grid">
 
-<input name="programme" class="form-control" placeholder="Programme">
-<input name="batch" class="form-control" placeholder="Batch of Admission">
-<input name="semester" class="form-control" placeholder="Semester">
+<div>
+<label for="programme" class="form-label d-none">Programme</label>
+<input id="programme" name="programme" class="form-control" placeholder="Programme">
+</div>
+
+<div>
+<label for="batch" class="form-label d-none">Batch of Admission</label>
+<input id="batch" name="batch" class="form-control" placeholder="Batch of Admission">
+</div>
+
+<div>
+<label for="semester" class="form-label d-none">Semester</label>
+<input id="semester" name="semester" class="form-control" placeholder="Semester">
+</div>
 
 </div>
 </div>
 
 <!-- CONTACT -->
-<div class="section">
-<h3>Contact Details</h3>
+<div class="section" role="group" aria-labelledby="contactHeading">
+<h3 id="contactHeading">Contact Details</h3>
 
-<textarea name="address" class="form-control" placeholder="Address *" required></textarea>
-<div class="invalid-feedback">Address required.</div>
+<div class="mb-3">
+<label for="address" class="form-label d-none">Address</label>
+<textarea id="address" name="address" class="form-control" placeholder="Address *" aria-required="true" required></textarea>
+<div class="invalid-feedback" role="alert">Address required.</div>
+</div>
 
 <div class="grid">
 
-<input name="state" class="form-control" placeholder="State *" required>
-<div class="invalid-feedback">State required.</div>
+<div>
+<label for="state" class="form-label d-none">State</label>
+<input id="state" name="state" class="form-control" placeholder="State *" aria-required="true" required>
+<div class="invalid-feedback" role="alert">State required.</div>
+</div>
 
-<input name="city" class="form-control" placeholder="City *" required>
-<div class="invalid-feedback">City required.</div>
+<div>
+<label for="city" class="form-label d-none">City</label>
+<input id="city" name="city" class="form-control" placeholder="City *" aria-required="true" required>
+<div class="invalid-feedback" role="alert">City required.</div>
+</div>
 
-<input name="pincode" class="form-control" placeholder="Pin Code *" required>
-<div class="invalid-feedback">Pincode required.</div>
+<div>
+<label for="pincode" class="form-label d-none">Pin Code</label>
+<input id="pincode" name="pincode" class="form-control" placeholder="Pin Code *" aria-required="true" required>
+<div class="invalid-feedback" role="alert">Pincode required.</div>
+</div>
 
-<input name="contact" class="form-control" placeholder="Contact Number *" required>
-<div class="invalid-feedback">Contact number required.</div>
+<div>
+<label for="contact" class="form-label d-none">Contact Number</label>
+<input id="contact" name="contact" class="form-control" placeholder="Contact Number *" aria-required="true" required>
+<div class="invalid-feedback" role="alert">Contact number required.</div>
+</div>
 
 </div>
 </div>
 
 <!-- COMPLAINT -->
-<div class="section">
-<h3>Complaint Details</h3>
+<div class="section" role="group" aria-labelledby="complaintHeading">
+<h3 id="complaintHeading">Complaint Details</h3>
 
-<textarea name="message" class="form-control" placeholder="Describe complaint *" required></textarea>
-<div class="invalid-feedback">Complaint message required.</div>
+<label for="message" class="form-label d-none">Describe complaint</label>
+<textarea id="message" name="message" class="form-control" placeholder="Describe complaint *" aria-required="true" required></textarea>
+<div class="invalid-feedback" role="alert">Complaint message required.</div>
 
 </div>
 
 <!-- EVIDENCE -->
-<div class="section">
-<h3>Evidence Upload</h3>
+<div class="section" role="group" aria-labelledby="evidenceHeading">
+<h3 id="evidenceHeading">Evidence Upload</h3>
 
-<i>max size 100 MB & max 5 file at once.</i>
+<i class="d-block mb-2 text-muted">max size 100 MB & max 5 file at once.</i>
 
-<input type="file" name="evidenceFiles" class="form-control" multiple>
+<label for="evidenceFiles" class="form-label d-none">Upload evidence files</label>
+<input type="file" id="evidenceFiles" name="evidenceFiles" class="form-control" multiple aria-describedby="evidenceHelp">
+<div id="evidenceHelp" class="form-text d-none">Upload up to 5 documents or images under 100 MB total.</div>
 
-<br>
+<div class="my-3 text-center text-muted">OR</div>
 
-<label>Paste Evidence URL</label>
-
-<input type="url" name="evidenceUrl" class="form-control"
-placeholder="https://example.com/file">
+<label for="evidenceUrl" class="form-label">Paste Evidence URL</label>
+<input type="url" id="evidenceUrl" name="evidenceUrl" class="form-control" placeholder="https://example.com/file">
 
 </div>
 
-<button type="submit" class="btn btn-primary mt-3">
+<button type="submit" class="btn btn-primary mt-3" aria-label="Submit Complaint Form">
 Submit Complaint
 </button>
 
