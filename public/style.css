@@ -157,9 +157,62 @@ textarea {
     to { opacity: 1; transform: translateY(0); }
 }
 
+.header-banner {
+    padding: 10px 0;
+}
+
+.logo-wrapper {
+    display: inline-block;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+}
+
+.logo-wrapper:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.university-logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+.banner-title {
+    text-align: center;
+    font-weight: 800;
+    font-size: 2.4rem !important;
+    letter-spacing: -1px;
+    margin-top: 15px;
+    margin-bottom: 12px !important;
+    background: linear-gradient(135deg, hsl(222.2, 47.4%, 11.2%), hsl(210, 100%, 30%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    line-height: 1.6;
+}
+
+.header-divider {
+    height: 3px;
+    width: 60px;
+    background: linear-gradient(to right, var(--primary-accent), var(--primary-hover));
+    margin: 0 auto;
+    border-radius: var(--border-radius-sm);
+}
+
 @media (max-width: 768px) {
     .container {
         margin: 20px;
         padding: 25px;
+    }
+    .banner-title {
+        font-size: 1.8rem !important;
     }
 }
