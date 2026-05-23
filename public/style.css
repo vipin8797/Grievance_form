@@ -142,9 +142,35 @@ textarea {
     box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.4);
 }
 
-.alert {
-    border-radius: var(--border-radius);
-    margin-top: 20px;
+.custom-alert {
+    display: flex;
+    align-items: center;
+    border-radius: var(--border-radius-md) !important;
+    padding: 16px 20px !important;
+    margin-top: 25px;
+    border: 1px solid transparent !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.alert-success-glass {
+    background-color: rgba(240, 253, 244, 0.9) !important;
+    color: hsl(142.1, 76.2%, 24.3%) !important;
+    border-color: rgba(74, 222, 128, 0.4) !important;
+}
+
+.alert-danger-glass {
+    background-color: rgba(254, 242, 242, 0.9) !important;
+    color: hsl(0, 84.2%, 30.2%) !important;
+    border-color: rgba(248, 113, 113, 0.4) !important;
+}
+
+.alert-icon {
+    flex-shrink: 0;
+}
+
+.alert-message {
+    font-weight: 500;
+    font-size: 0.95rem;
 }
 
 #studentFields {
