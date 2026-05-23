@@ -228,6 +228,34 @@ Submit Complaint
             });
         }
 
+        const fileInput = document.getElementById("evidenceFiles");
+
+        // Client-side file validation (size & count)
+        if (fileInput) {
+            fileInput.addEventListener("change", () => {
+                const files = fileInput.files;
+                if (files.length > 5) {
+                    fileInput.setCustomValidity("You can only upload up to 5 files.");
+                    alert("Error: You can upload a maximum of 5 evidence files at once.");
+                } else {
+                    let sizeExceeded = false;
+                    const maxSize = 100 * 1024 * 1024; // 100 MB
+                    for (let i = 0; i < files.length; i++) {
+                        if (files[i].size > maxSize) {
+                            sizeExceeded = true;
+                            break;
+                        }
+                    }
+                    if (sizeExceeded) {
+                        fileInput.setCustomValidity("Each file must be under 100 MB.");
+                        alert("Error: Each evidence file must be under 100 MB in size.");
+                    } else {
+                        fileInput.setCustomValidity("");
+                    }
+                }
+            });
+        }
+
         roleSelect.addEventListener("change", function() {
             if (this.value === "student") {
                 studentFields.style.display = "block";
