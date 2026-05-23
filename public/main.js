@@ -1,6 +1,7 @@
 /**
  * Client-side script for Starex Grievance Form
  * Handles validations, character counters, floating buttons, dynamic role inputs, and spinner states.
+ * Updated: May 2026
  */
 (() => {
     'use strict';
