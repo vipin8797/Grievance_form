@@ -34,9 +34,13 @@ body {
     max-width: 850px;
     margin: 40px auto;
     background: var(--container-bg);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
     padding: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    transition: box-shadow 0.3s ease;
 }
 
 h2 {
