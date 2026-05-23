@@ -281,3 +281,27 @@ textarea {
 .scroll-to-top-btn:active {
     transform: translateY(0) scale(0.95);
 }
+
+/* Footer Styles */
+.footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 20px;
+}
+
+.footer-divider {
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.footer a {
+    transition: color 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.footer a:hover {
+    color: var(--primary-accent) !important;
+}
+
+.footer span {
+    font-size: 0.9rem;
+}
