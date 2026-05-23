@@ -83,7 +83,7 @@ const PORT = process.env.PORT || 3000;
 connectDb()
 .then(() => {
     app.listen(PORT, () => {
-        console.log(`listening at ${PORT}`);
+        console.log(`Server is running and listening on: http://localhost:${PORT}`);
     });
 })
 .catch(console.log);
