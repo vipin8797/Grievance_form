@@ -16,7 +16,9 @@ const complaintJoiSchema = Joi.object({
 
     fatherName: Joi.string().trim().required(),
 
-    department: Joi.string().trim().required()
+    department: Joi.string().trim().required(),
+
+    email: Joi.string().email().trim().allow("", null).optional()
 
   }).required(),
 
