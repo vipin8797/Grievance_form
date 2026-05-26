@@ -18,6 +18,45 @@
     --border-radius-sm: 4px;
 }
 
+:root.dark {
+    --primary-color: hsl(210, 40%, 98%);
+    --primary-accent: hsl(217.2, 91.2%, 59.8%);
+    --primary-hover: hsl(217.2, 91.2%, 69.8%);
+    --bg-gradient: linear-gradient(135deg, hsl(222.2, 47.4%, 11.2%), hsl(222.2, 47.4%, 4%));
+    --container-bg: rgba(15, 23, 42, 0.75);
+    --text-color: hsl(210, 40%, 98%);
+    --text-muted: hsl(215, 20.2%, 65.1%);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --input-border: hsl(217.2, 32.6%, 22%);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+:root.dark .logo-wrapper {
+    background: hsl(222.2, 47.4%, 15%);
+}
+
+:root.dark .form-control, :root.dark .form-select {
+    background-color: rgba(30, 41, 59, 0.85);
+}
+
+:root.dark .form-control:focus, :root.dark .form-select:focus {
+    background-color: hsl(222.2, 47.4%, 15%);
+}
+
+:root.dark .custom-alert.alert-success-glass {
+    background-color: rgba(6, 78, 59, 0.9) !important;
+    color: hsl(142.1, 76.2%, 85%) !important;
+    border-color: rgba(74, 222, 128, 0.2) !important;
+}
+
+:root.dark .custom-alert.alert-danger-glass {
+    background-color: rgba(127, 29, 29, 0.9) !important;
+    color: hsl(0, 84.2%, 85%) !important;
+    border-color: rgba(248, 113, 113, 0.2) !important;
+}
+
 body {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: var(--bg-gradient);
