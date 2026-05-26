@@ -40,9 +40,9 @@ const complaintJoiSchema = Joi.object({
 
     city: Joi.string().required(),
 
-    pincode: Joi.string().required(),
+    pincode: Joi.string().regex(/^[1-9][0-9]{5}$/).required(),
 
-    contactNumber: Joi.string().required()
+    contactNumber: Joi.string().regex(/^[6-9][0-9]{9}$/).required()
 
   }).required(),
 
