@@ -9,6 +9,7 @@ Role: ${complaint.role}
 Name: ${complaint.personal.name}
 Father Name: ${complaint.personal.fatherName}
 Department: ${complaint.personal.department}
+Email: ${complaint.personal.email || "Not provided"}
 
 Programme: ${complaint.academic.programme}
 Batch: ${complaint.academic.batch}
