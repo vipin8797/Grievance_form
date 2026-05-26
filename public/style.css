@@ -189,6 +189,21 @@ textarea {
     margin-top: 25px;
     border: 1px solid transparent !important;
     box-shadow: var(--shadow-md) !important;
+    animation: alertBounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes alertBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    70% {
+        transform: translateY(4px) scale(1.01);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .alert-success-glass {
