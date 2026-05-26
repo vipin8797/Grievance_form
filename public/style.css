@@ -344,3 +344,34 @@ textarea {
 .footer span {
     font-size: 0.9rem;
 }
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--container-bg);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-color);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    z-index: 1000;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.08) rotate(15deg);
+    box-shadow: var(--shadow-lg);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95);
+}
