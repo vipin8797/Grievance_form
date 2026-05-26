@@ -149,6 +149,15 @@
         });
     }
 
+    // 4.7. Auto-resizing Textareas (Address and Message)
+    const autoResizeTextareas = document.querySelectorAll("textarea");
+    autoResizeTextareas.forEach(textarea => {
+        textarea.addEventListener("input", function() {
+            this.style.height = "auto";
+            this.style.height = this.scrollHeight + "px";
+        });
+    });
+
     // 5. Bootstrap validation styling & Submit loading states
     Array.from(forms).forEach(form => {
         form.addEventListener("submit", event => {
