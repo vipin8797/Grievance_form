@@ -54,10 +54,14 @@
         });
     }
 
-    // 2. Client-side evidence files validation (size & count limits)
+    // 2. Client-side evidence files validation (size & count limits) & List Display
     if (fileInput) {
         fileInput.addEventListener("change", () => {
             const files = fileInput.files;
+            const listContainer = document.getElementById("selectedFilesList");
+            
+            if (listContainer) listContainer.innerHTML = "";
+
             if (files.length > 5) {
                 fileInput.setCustomValidity("You can only upload up to 5 files.");
                 alert("Error: You can upload a maximum of 5 evidence files at once.");
@@ -75,6 +79,21 @@
                     alert("Error: Each evidence file must be under 100 MB in size.");
                 } else {
                     fileInput.setCustomValidity("");
+                    
+                    // Render selected files
+                    if (listContainer && files.length > 0) {
+                        for (let i = 0; i < files.length; i++) {
+                            const file = files[i];
+                            const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+                            const fileItem = document.createElement("div");
+                            fileItem.className = "selected-file-item";
+                            fileItem.innerHTML = `
+                                <span class="text-truncate" style="max-width: 80%;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-check-fill text-primary me-2 align-middle" viewBox="0 0 16 16"><path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1m1.354 4.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg>${file.name}</span>
+                                <span class="text-muted small">${fileSizeMB} MB</span>
+                            `;
+                            listContainer.appendChild(fileItem);
+                        }
+                    }
                 }
             }
         });
