@@ -40,7 +40,8 @@ router.post(
             personal: {
                 name: req.body.name?.trim(),
                 fatherName: req.body.fatherName?.trim(),
-                department: req.body.department?.trim()
+                department: req.body.department?.trim(),
+                email: req.body.email?.trim()
             },
             academic: {
                 programme: req.body.programme,
