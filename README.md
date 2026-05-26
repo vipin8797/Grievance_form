@@ -12,13 +12,17 @@ A premium, highly secure, and responsive web application designed for Starex Uni
 ## ✨ Features
 
 - **🌐 Sleek Brand Design**: Brand-aligned colors, Google Font integration (Inter), elegant glassmorphism containers, hover scale transitions, and responsive grid layouts.
-- **📂 Cloudinary Evidence Uploads**: Supports local multi-file evidence uploads up to 5 files or 100 MB total, instantly backed up on Cloudinary.
+- **🌓 Dynamic Dark Mode**: Implemented via global CSS overrides, complete with a floating toggle button, dynamic prefers-color-scheme detection, and localStorage state persistence.
+- **📂 Custom File Dropzone**: Formatted as a dashed premium upload area showing real-time listings of selected file names and sizes before form submission.
+- **📧 Complainant Email Integrations**: Optional email collection that syncs into Mongoose schemas, Joi email format validations, and custom Nodemailer body templates.
+- **📱 Pincode & Contact Regex Masks**: Interactive client-side filters preventing invalid input types during entry and strict regex pattern matchers on the server-side.
 - **🔗 Direct Evidence Links**: Paste hotlinks/URLs directly to attach files easily.
 - **🛡️ Dynamic Form Toggling**: Interactive client-side fields tailored for "Student" vs "Staff" roles dynamically adjusting layout spaces.
 - **🔔 Live Validations & Counters**: Micro-interaction elements showing real-time feedback (character counter, max file limits, and input focus shadow rings).
 - **🚀 Advanced Double-Submission Shield**: Submit button transitions to a dynamic loading state with spin indicators upon form submission, preventing double records.
 - **📬 Nodemailer Auto-Alerts**: Instantly constructs rich text emails using standard builders and sends them to admin panels.
 - **💥 Glassmorphic Error/404 Handlers**: Elegant EJS templates handling errors and invalid endpoints professionally with click-backs to the home dashboard.
+- **scrollbar Styling**: Custom glassmorphic scrollbars built directly using Webkit engines to look gorgeous in both dark and light modes.
 
 ---
 
