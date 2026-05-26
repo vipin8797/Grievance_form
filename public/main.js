@@ -133,6 +133,22 @@
         });
     }
 
+    // 4.5. Pincode and Contact Number Interactive Masks
+    const pincodeInput = document.getElementById("pincode");
+    const contactInput = document.getElementById("contact");
+
+    if (pincodeInput) {
+        pincodeInput.addEventListener("input", () => {
+            pincodeInput.value = pincodeInput.value.replace(/\D/g, "").slice(0, 6);
+        });
+    }
+
+    if (contactInput) {
+        contactInput.addEventListener("input", () => {
+            contactInput.value = contactInput.value.replace(/\D/g, "").slice(0, 10);
+        });
+    }
+
     // 5. Bootstrap validation styling & Submit loading states
     Array.from(forms).forEach(form => {
         form.addEventListener("submit", event => {
