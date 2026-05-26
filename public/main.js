@@ -13,6 +13,36 @@
     const charCountSpan = document.getElementById("charCount");
     const fileInput = document.getElementById("evidenceFiles");
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    const themeToggleBtn = document.getElementById("themeToggleBtn");
+    const sunIcon = document.getElementById("sunIcon");
+    const moonIcon = document.getElementById("moonIcon");
+
+    // 0. Theme Initialization & Toggling
+    const currentTheme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (currentTheme === "dark") {
+        document.documentElement.classList.add("dark");
+        if (sunIcon) sunIcon.classList.remove("d-none");
+        if (moonIcon) moonIcon.classList.add("d-none");
+    } else {
+        document.documentElement.classList.remove("dark");
+        if (sunIcon) sunIcon.classList.add("d-none");
+        if (moonIcon) moonIcon.classList.remove("d-none");
+    }
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", () => {
+            const isDark = document.documentElement.classList.toggle("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+            
+            if (isDark) {
+                if (sunIcon) sunIcon.classList.remove("d-none");
+                if (moonIcon) moonIcon.classList.add("d-none");
+            } else {
+                if (sunIcon) sunIcon.classList.add("d-none");
+                if (moonIcon) moonIcon.classList.remove("d-none");
+            }
+        });
+    }
 
     // 1. Real-time character counter
     if (messageInput && charCountSpan) {
