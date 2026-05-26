@@ -197,16 +197,27 @@ Please select your role.
 <div class="section" role="group" aria-labelledby="evidenceHeading">
 <h3 id="evidenceHeading">Evidence Upload</h3>
 
-<i class="d-block mb-2 text-muted">max size 100 MB & max 5 file at once.</i>
+<i class="d-block mb-3 text-muted">max size 100 MB & max 5 files at once.</i>
 
-<label for="evidenceFiles" class="form-label d-none">Upload evidence files</label>
-<input type="file" id="evidenceFiles" name="evidenceFiles" class="form-control" multiple aria-describedby="evidenceHelp">
+<div class="file-upload-zone mb-3 text-center">
+    <label for="evidenceFiles" class="file-upload-label mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-cloud-arrow-up-fill text-primary mb-2" viewBox="0 0 16 16">
+            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 5.146a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0z"/>
+        </svg>
+        <span class="d-block fw-semibold text-dark file-upload-text">Drag files here or click to browse</span>
+        <span class="d-block text-muted small mt-1">PDF, JPG, PNG, DOC (Max 5 files)</span>
+    </label>
+    <input type="file" id="evidenceFiles" name="evidenceFiles" class="file-upload-input" multiple aria-describedby="evidenceHelp">
+</div>
 <div id="evidenceHelp" class="form-text d-none">Upload up to 5 documents or images under 100 MB total.</div>
+
+<!-- Container for live file list rendering -->
+<div id="selectedFilesList" class="selected-files-list mb-3"></div>
 
 <div class="my-3 text-center text-muted">OR</div>
 
-<label for="evidenceUrl" class="form-label">Paste Evidence URL</label>
-<input type="url" id="evidenceUrl" name="evidenceUrl" class="form-control" placeholder="https://example.com/file">
+<label for="evidenceUrl" class="form-label d-none">Paste Evidence URL</label>
+<input type="url" id="evidenceUrl" name="evidenceUrl" class="form-control" placeholder="Paste direct evidence link (https://...)">
 
 </div>
 
