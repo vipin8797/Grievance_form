@@ -29,13 +29,25 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 
-// Middleware
+// ==========================================
+// Middleware Configuration
+// ==========================================
+
+// HTTP request logger
 app.use(morgan(':method :url :response-time'));
+
+// Parse URL-encoded bodies and JSON data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Setup view engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
+// Serve static files
 app.use(express.static(path.join(__dirname, "public")));
+
+// Method override for PUT/DELETE requests
 app.use(methodOverride('_method'));
 
 const sessionOptions = {

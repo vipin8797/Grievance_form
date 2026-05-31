@@ -4,12 +4,16 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon node app.js"
+    "start": "nodemon app.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "grievance",
+    "form",
+    "starex"
+  ],
+  "author": "Vipin",
   "license": "ISC",
-  "description": "",
+  "description": "Starex Grievance & Redressal Portal",
   "dependencies": {
     "cloudinary": "^1.41.3",
     "connect-flash": "^0.1.1",
